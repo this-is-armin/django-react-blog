@@ -49,6 +49,10 @@ const PostDetail = () => {
             <hr /><br />
 
             <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
+
+            <br /><hr /><br />
+
+            <h4 className="center"><i>this.is.armin.emami@gmail.com</i></h4>
         </>
     );
 };
