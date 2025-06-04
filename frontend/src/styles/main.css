@@ -1,0 +1,52 @@
+/* main.css */
+
+/* Fonts */
+@font-face {
+    font-family: "Kode Mono";
+    src: url('../fonts/KodeMono-VariableFont_wght.ttf');
+}
+
+/* Base */
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+/* Header */
+header {
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 5px gray;
+    background-color: #113f67;
+}
+
+header a {
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    color: #e7eaf6;
+}
+
+header a:hover {
+    color: darkgray;
+}
+
+/* Content */
+.content {
+    width: 80%;
+    margin: 50px 8.5%;
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}

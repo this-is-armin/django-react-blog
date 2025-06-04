@@ -1,0 +1,43 @@
+/* PostDetail.module.css */
+
+.loading {
+    font-size: 1.5rem;
+    text-align: center;
+    color: darkblue;
+}
+
+.error {
+    font-size: 1.5rem;
+    text-align: center;
+    color: darkred;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.timeContainer {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666; 
+}
+
+.time {
+    font-style: italic;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .timeContainer {
+        font-size: 0.8rem;
+    }
+}
