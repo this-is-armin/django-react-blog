@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'ckeditor',
-    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -166,9 +165,13 @@ CORS_ALLOW_HEADERS = [
 
 
 # CKEditor settings
-CKEDITOR_UPLOAD_PATH = '/uploads/'
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full'
+        'toolbar': 'full',
+        'removePlugins': 'uploadimage,image,uploadwidget,filebrowser',
+        'disallowedContent': 'img{width,height};img[width,height]',
     }
 }
+
+# Silence CKEditor warnings
+SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']

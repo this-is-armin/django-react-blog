@@ -24,9 +24,6 @@ urlpatterns = [
 
     # my apps
     path('api/', include('api.urls', namespace='api')),
-
-    # third-party
-    path('ckeditor_uploader/', include('ckeditor_uploader.urls')),
 ]
 
 
