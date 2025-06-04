@@ -42,11 +42,21 @@ header a:hover {
 
 /* Content */
 .content {
-    width: 80%;
-    margin: 50px 8.5%;
+    width: 90%;
+    margin: 50px 4%;
     padding: 10px;
 }
 
 .center {
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+
+    header a {
+        font-size: 1.2rem;
+    }
 }
