@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 import styles from "./Blog.module.css";
+import Post from "../../components/Post";
 
 const Blog = () => {
     const [posts, setPosts] = useState([]);
@@ -20,7 +20,7 @@ const Blog = () => {
         }
     };
 
-    useEffect(() => {
+    useEffect(() => { 
         fetchPosts();
     }, []);
 
@@ -39,12 +39,7 @@ const Blog = () => {
 
             <div className={styles.container}>
                 {posts.map((post) => (
-                    <div key={post.id} className={styles.card}>
-                        <h1>{post.title}</h1>
-                        <p>{post.description}</p>
-                        <br /><hr /><br />
-                        <Link to={`/blog/${post.slug}/`}>Read More</Link>
-                    </div>
+                    <Post key={post.id} post={post} className={styles.card} />
                 ))}
             </div>
         </>
