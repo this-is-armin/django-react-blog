@@ -22,7 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # my apps
+    # local apps
     path('api/', include('api.urls', namespace='api')),
 ]
 

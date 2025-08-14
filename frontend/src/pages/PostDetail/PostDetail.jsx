@@ -4,6 +4,7 @@ import axios from "axios";
 
 import styles from "./PostDetail.module.css";
 
+
 const PostDetail = () => {
     const { slug } = useParams();
     const [post, setPost] = useState([]);

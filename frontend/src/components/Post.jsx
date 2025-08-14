@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 const Post = ({ post, className }) => {
     return (
         <div className={className}>

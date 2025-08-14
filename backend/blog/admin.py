@@ -10,17 +10,30 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'title', 'is_published', 'created_at', 'updated_at']
     list_filter = ['user', 'is_published', 'created_at']
     list_per_page = 20
-    list_max_show_all = 200
+    list_max_show_all = 60
     search_fields = ['title', 'descritpion']
     readonly_fields = ['created_at', 'updated_at']
     prepopulated_fields = {'slug': ['title']}
-    ordering = ['-created_at']
     actions = ['publish', 'unpublish']
 
-    """
-    To publish selected posts.
-    """
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+
+        if not Post.objects.filter(is_published=False).exists():
+            if 'publish' in actions:
+                del actions['publish']
+        
+        if not Post.objects.filter(is_published=True).exists():
+            if 'unpublish' in actions:
+                del actions['unpublish']
+        
+        return actions
+
     def publish(self, request, queryset):
+        """
+        To publish selected posts.
+        """
+        queryset = queryset.filter(is_published=False)
         updated = queryset.update(is_published=True)
         self.message_user(
             request,
@@ -33,11 +46,11 @@ class PostAdmin(admin.ModelAdmin):
         )
     publish.short_description = "Publish selected posts"
 
-
-    """
-    To unpublish selected posts.
-    """
     def unpublish(self, request, queryset):
+        """
+        To unpublish selected posts.
+        """
+        queryset = queryset.filter(is_published=True)
         updated = queryset.update(is_published=False)
         self.message_user(
             request,
